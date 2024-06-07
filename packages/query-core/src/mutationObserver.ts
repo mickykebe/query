@@ -110,6 +110,7 @@ export class MutationObserver<
   }
 
   reset(): void {
+    this.currentMutation?.removeObserver(this);
     this.currentMutation = undefined
     this.updateResult()
     this.notify({ listeners: true })
